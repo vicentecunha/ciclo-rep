@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.RadioButton;
@@ -381,8 +382,7 @@ public class MainActivity extends AppCompatActivity {
         if (outputStream != null) {
             try {
                 outputStream.write((byte) 0xA0);
-                outputStream.write((byte) 0x00);
-                outputStream.write(String.format(Locale.US, "%03d", load).getBytes());
+                outputStream.write(String.format(Locale.US, "%04d", load).getBytes());
             } catch (IOException e) {e.printStackTrace();}
         }
     }
